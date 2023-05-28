@@ -12,6 +12,19 @@ import { theme } from "../../data/dummy";
 import TitleContent from "./components/TitleContent";
 import ProductCard from "../../components/Cart/ProductCard";
 import ProductOrderDetails from "./components/ProductOrderDetails";
+import Dot from "./components/Dot";
+import ProgressBar from "./components/ProgressBar";
+
+const StyledBox = styled(Box)(({ theme, pd, gp }) => ({
+  display: "flex",
+  flexDirection: "column",
+  [theme.breakpoints.up("md")]: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  gap: gp,
+  padding: pd,
+}));
 const products = [
   {
     id: 1,
@@ -57,13 +70,6 @@ const products = [
     quantity: 1,
   },
 ];
-const StyledBox = styled(Box)(({ theme }) => ({
-  display: "flex",
-  flexDirection: useMediaQuery(theme.breakpoints.up("md")) ? "row" : "column",
-  gap: 2,
-  p: 2,
-}));
-
 function OrderDetails() {
   const biggerThanMd = useMediaQuery(theme.breakpoints.up("md"));
   return (
@@ -73,50 +79,33 @@ function OrderDetails() {
       </Box>
       <Divider flexItem />
       {/* پیگیری سفارش تاریخ ثبت */}
-      <Box
-        display="flex"
-        flexDirection={biggerThanMd ? "row" : "column"}
-        gap={2}
-        p={2}
-      >
+      <StyledBox pd="1rem" gp="1rem">
         <TitleContent title={"کد پیگیری سفارش"} content={"۳۳۲۳۰۲۱۴۰"} />
-        <TitleContent title={"تاریخ ثبت سفارش"} content={"۲۴ اردیبهشت ۱۴۰۲"} />
-      </Box>
+        <Dot />
+        <TitleContent title={"تاریخ ثبت سفارش"} content={"یکشنبه ۱۵ تیر "} />
+      </StyledBox>
       <Divider variant="middle" flexItem />
       {/* تحویل گیرنده تاریخ ثبت */}
-      <Box
-        display="flex"
-        flexDirection={biggerThanMd ? "row" : "column"}
-        gap={2}
-        p={2}
-      >
+      <StyledBox pd="1rem" gp="1rem">
         <TitleContent title={"تحویل گیرنده"} content={"فواد صدر"} />
+        <Dot />
         <TitleContent title={"شماره موبایل"} content={"۰۹۰۳۰۴۸۳۳۴۵"} />
-      </Box>
+      </StyledBox>
       {/* آدرس */}
-      <Box
-        display="flex"
-        flexDirection={biggerThanMd ? "row" : "column"}
-        gap={0.5}
-        px={2}
-        pb={2}
-      >
+      <Box display="flex" flexDirection={"column"} gap={0.5} px={2} pb={2}>
         <TitleContent
           title={"آدرس"}
           content={"امیر آباد، خ. کارگر شمالی، خ. فرشی مقدم"}
+          direction="column"
         />
       </Box>
       <Divider flexItem />
       {/* مبلغ نوع پرداخت */}
-      <Box
-        display="flex"
-        flexDirection={biggerThanMd ? "row" : "column"}
-        gap={2}
-        p={2}
-      >
+      <StyledBox pd="1rem" gp="1rem">
         <TitleContent title={"مبلغ"} content={"۳۰۱,۵۹۰ تومان"} />
+        <Dot />
         <TitleContent title={"نوع پرداخت"} content={"پرداخت اینترنتی"} />
-      </Box>
+      </StyledBox>
       <Divider flexItem />
       {/* زمان تحویل - نمایش محصولات */}
       <Box
@@ -128,37 +117,36 @@ function OrderDetails() {
         flexDirection="column"
       >
         <Box display="flex" flexDirection={biggerThanMd ? "row" : "column"}>
-          <Box display="flex" flexDirection="column" gap={2} p={2}>
-            {/* زمان تحویل */}
+          <Box flex={1} display="flex" flexDirection="column" gap={2} p={2}>
+            {/* نوع ارسال -زمان تحویل */}
+            <TitleContent title={"ارسال"} content={"پست"} />
             <TitleContent
               title={"زمان تحویل"}
-              content={"یکشنبه ۲۴ اردیبهشت بازه ۱۵ - "}
+              content={"یکشنبه ۲۴ اردیبهشت بازه ۳۲-۱۵  "}
             />
-
             {/* هزینه ارسال مبلغ مرسوله */}
-            <Box
-              display="flex"
-              flexDirection={biggerThanMd ? "row" : "column"}
-              gap={2}
-            >
+            <StyledBox gap={2}>
               <TitleContent title={"هزینه ارسال"} content={"رایگان"} />
+              <Dot />
               <TitleContent title={"مبلغ مرسوله"} content={"۲۸۲,۵۹۰ تومان"} />
-            </Box>
+            </StyledBox>
           </Box>
           {/* progressbar - پیگیری مرسوله */}
-          progressbar
+          <Box flex={1} order={biggerThanMd ? 0 : -1} p={2}>
+            <ProgressBar orderstate="paid" />
+          </Box>
         </Box>
-        <Divider variant="middle" />
-        <Box>
-          {products.map((product, index) => (
-            <Box mt={3} key={index}>
-              <Container maxWidth="xl">
-                <ProductOrderDetails product={product} key={index} border={0} />
-              </Container>
-              <Divider variant="middle" />
-            </Box>
-          ))}
-        </Box>
+      </Box>
+      <Divider variant="middle" />
+      <Box>
+        {products.map((product, index) => (
+          <Box mt={3} key={index}>
+            <Container maxWidth="xl">
+              <ProductOrderDetails product={product} key={index} border={0} />
+            </Container>
+            <Divider variant="middle" />
+          </Box>
+        ))}
       </Box>
     </Box>
   );
