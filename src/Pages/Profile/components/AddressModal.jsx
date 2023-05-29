@@ -40,7 +40,7 @@ function AddressModal({
         <AddressHeader handleCloseMap={handleCloseMap} />
       </Box>
       <Divider variant="fullWidth" />
-      <Box height="100%" width="100%">
+      <Box height="80%" width="100%">
         {showForm ? (
           <AddressForm
             setShowForm={setShowForm}

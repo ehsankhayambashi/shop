@@ -23,7 +23,7 @@ function AddressDialog({
       </Box>
       <Divider variant="fullWidth" />
       {/* <Box height={showForm ? "90vh" : "75vh"}> */}
-      <Box height="80%">
+      <Box height="70%">
         {showForm ? (
           <AddressForm setShowForm={setShowForm} location={location} />
         ) : (
