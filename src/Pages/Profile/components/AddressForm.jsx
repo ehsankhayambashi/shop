@@ -490,6 +490,8 @@ function AddressForm({ setShowForm, location, handleCloseMap }) {
                     alignItems="center"
                     bottom="0"
                     boxShadow={2}
+                    zIndex={2}
+                    bgcolor="white"
                   >
                     <Button
                       variant="contained"
