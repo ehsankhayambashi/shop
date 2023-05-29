@@ -301,7 +301,7 @@ function AddressForm({ setShowForm, location, handleCloseMap }) {
     <>
       <Box height="100%" display="flex" flexDirection="column">
         <Box
-          height={biggerThanMd ? "5vh" : "10vh"}
+          height={biggerThanMd ? "5%" : "10%"}
           display="flex"
           alignItems="center"
         >
@@ -319,7 +319,7 @@ function AddressForm({ setShowForm, location, handleCloseMap }) {
             <BackButton title="جزئیات آدرس" backUrl="" />
           </Box>
         </Box>
-        <Box height="70vh" sx={{ overflowY: "scroll" }}>
+        <Box height="70%" sx={{ overflowY: "scroll" }}>
           <Formik
             initialValues={{
               location,
@@ -501,7 +501,7 @@ function AddressForm({ setShowForm, location, handleCloseMap }) {
                   </Grid>
                   <Box
                     width="100%"
-                    height="10vh"
+                    height="10%"
                     position="fixed"
                     display="flex"
                     justifyContent="center"

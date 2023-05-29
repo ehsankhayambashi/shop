@@ -18,12 +18,12 @@ function AddressDialog({
 }) {
   return (
     <Box display="flex" flexDirection="column" height="100vh">
-      <Box height="10vh" px={2} pt={1}>
+      <Box height="10%" px={2} pt={1}>
         <AddressHeader handleCloseMap={handleCloseMap} />
       </Box>
       <Divider variant="fullWidth" />
       {/* <Box height={showForm ? "90vh" : "75vh"}> */}
-      <Box height="80vh">
+      <Box height="80%">
         {showForm ? (
           <AddressForm setShowForm={setShowForm} location={location} />
         ) : (
@@ -35,7 +35,7 @@ function AddressDialog({
           />
         )}
       </Box>
-      <Box>
+      <Box height="10%">
         <AddressFooter
           setShowForm={setShowForm}
           showForm={showForm}
