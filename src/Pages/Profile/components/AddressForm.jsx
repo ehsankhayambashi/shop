@@ -319,7 +319,7 @@ function AddressForm({ setShowForm, location, handleCloseMap }) {
             <BackButton title="جزئیات آدرس" backUrl="" />
           </Box>
         </Box>
-        <Box height="70%" sx={{ overflowY: "scroll" }}>
+        <Box sx={{ overflowY: "scroll" }}>
           <Formik
             initialValues={{
               location,
@@ -507,7 +507,7 @@ function AddressForm({ setShowForm, location, handleCloseMap }) {
                     justifyContent="center"
                     alignItems="center"
                     bottom="0"
-                    // bgcolor="plum"
+                    boxShadow={1}
                   >
                     <Button
                       variant="contained"
