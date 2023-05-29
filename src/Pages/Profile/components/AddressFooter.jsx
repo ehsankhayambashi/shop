@@ -9,7 +9,7 @@ function AddressFooter({ setShowForm, showForm, location }) {
       flexDirection="row"
       alignItems="center"
       justifyContent="space-between"
-      py={1.5}
+      pt={1.5}
       px={1}
     >
       <Box flex={1}>
