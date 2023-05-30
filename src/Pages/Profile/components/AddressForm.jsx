@@ -299,8 +299,28 @@ function AddressForm({ setShowForm, location, handleCloseMap }) {
 
   return (
     <>
-      <Box height="100%" display="flex" flexDirection="column">
-        <Box sx={{ overflowY: "scroll" }}>
+      <Box height="80vh" display="flex" flexDirection="column">
+        {/* <Box
+        // height={biggerThanMd ? "5vh" : "10vh"}
+        height="20%"
+        display="flex"
+        alignItems="center"
+      >
+        <Box
+          height="100%"
+          sx={{ cursor: "pointer" }}
+          px={2}
+          pb={1}
+          display="flex"
+          alignItems="center"
+          onClick={() => {
+            setShowForm(false);
+          }}
+        >
+          <BackButton title="جزئیات آدرس" backUrl="" />
+        </Box>
+      </Box> */}
+        <Box height="100%" sx={{ overflowY: "scroll", marginBottom: "60px" }}>
           <Formik
             initialValues={{
               location,
@@ -482,16 +502,14 @@ function AddressForm({ setShowForm, location, handleCloseMap }) {
                   </Grid>
                   <Box
                     width="100%"
-                    sx={{ height: "fit-content" }}
-                    py={1}
+                    height="60px"
                     position="fixed"
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
                     bottom="0"
-                    boxShadow={2}
                     zIndex={2}
-                    bgcolor="white"
+                    sx={{ boxShadow: " 0px 0px 0px #888, 0px -2px 5px #888" }}
                   >
                     <Button
                       variant="contained"

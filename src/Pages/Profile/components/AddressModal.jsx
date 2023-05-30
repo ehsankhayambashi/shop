@@ -36,10 +36,10 @@ function AddressModal({
   };
   return (
     <Box sx={style}>
-      <Box height="5%" px={2} pt={1} pb={0.5}>
+      <Box height="8%" px={2} pt={1} pb={0.5}>
         <AddressHeader handleCloseMap={handleCloseMap} />
       </Box>
-
+      <Divider variant="fullWidth" />
       <Box height="80%" width="100%">
         {showForm ? (
           <AddressForm
