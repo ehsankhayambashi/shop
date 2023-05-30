@@ -17,7 +17,7 @@ function AddressDialog({
   setShowForm,
 }) {
   return (
-    <Box display="flex" flexDirection="column" height="85vh">
+    <Box display="flex" flexDirection="column" height="95vh">
       <Box height="120px" px={2} pt={1} zIndex={2}>
         <AddressHeader handleCloseMap={handleCloseMap} />
       </Box>
